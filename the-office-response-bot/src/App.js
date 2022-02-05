@@ -7,19 +7,35 @@ import { flushSync } from "react-dom";
 
 function App() {
 
-  const [lines, setLines] = useState(data);
   const [userText, setUserText] = useState('');
+  const [lines, setLines] = useState([]);
   let michaelLine = 'Sometimes I’ll start a sentence and I don’t even know where it’s going. I just hope I find it along the way.';
   const [botResponse, setBotResponse] = useState(michaelLine);
 
-  const getResponse = () => {
-    let randomIndex = Math.floor(Math.random() * lines.length-1);
-    setBotResponse(lines[randomIndex]);
-  }
-
+  // gets all lines from the office.
+  useEffect(() => {
+    const getLines = () => {
+      let arr = [];
+      for (let i=0; i<data.length; i++) {
+        arr.push(data[i].toString());
+      }
+      let fz = FuzzySet(arr);
+      setLines(fz);
+      console.log('done');
+    }
+    getLines();
+  }, []);
+  
+  // find closest matching line to user text
+  // respond to user w/ next line in the show. 
+  // return the next line in the show. 
   const handleSubmit = (e) => {
     e.preventDefault();
-    getResponse();
+    let score = lines.get(userText);
+    let best_match_line = score[0][1];
+    let index = data.indexOf(best_match_line);
+    let response = data[index+1];
+    setBotResponse(response);
   }
 
   return (
@@ -35,7 +51,7 @@ function App() {
             Submit
           </button>
         </form>
-        <p>{botResponse}</p>
+        {botResponse}
       </header>
     </div>
   );

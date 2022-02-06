@@ -47,34 +47,28 @@ function App() {
     }
   }
 
+  const generateResponse = (e) => {
+    let index = data.indexOf(botResponse);
+    setUserText(data[index+1]);
+  }
+
   return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <h3>The Office Response Bot</h3>
         <form onSubmit={handleSubmit}>
-          <input type="text" name="userLine" onChange={(e) => setUserText(e.target.value)}/>
+          <input type="text" value={userText} name="userLine" onChange={(e) => setUserText(e.target.value)}/>
           <button type="submit">Submit</button>
-          <span 
+          <img 
             onClick={() => setMute(!mute)}
-            style={{width:'50px', height: '50px', backgroundColor: 'white'}}
-          >
-            {mute && 
-              <img 
-              src={off_mic}
-              alt="toggle text to speech" 
-              style={{width: '30px', height: '30px'}}/>
-            }
-            {!mute &&
-              <img
-              src={on_mic}
-              alt="toggle text to speech" 
-              style={{width: '30px', height: '30px'}}
-              />
-            }
-
-          </span>
+            src={mute ? off_mic : on_mic}
+            alt="toggle text to speech" 
+            style={{width: '30px', height: '30px', backgroundColor: "whitesmoke"}}/>
         </form>
+        <button type="submit" onClick={generateResponse}>
+          Generate auto response
+        </button>
         {botResponse}
       </header>
     </div>

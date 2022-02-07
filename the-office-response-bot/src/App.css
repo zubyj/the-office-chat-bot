@@ -31,10 +31,11 @@
 .title {
   text-decoration: none !important;
   font-size: 2rem;
+  margin-top: 3rem;
 }
 
 .Submit-btn {
-  margin-top: 2rem;
+  margin-top: 3rem;
 }
 
 .Submit-btn Button {

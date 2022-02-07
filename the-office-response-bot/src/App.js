@@ -8,7 +8,6 @@ import FuzzySet from "fuzzyset.js";
 import { flushSync } from "react-dom";
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
-import MicOff from "@mui/icons-material/MicOff";
 
 function App() {
 
@@ -52,22 +51,16 @@ function App() {
   }
 
   // Return the next line in the show after bot's line
-  const generateUserText = (e) => {
-
-    let index = data.indexOf(botResponse);  
-    let response = data[index+1].toString();
-
-    // Corner case
-    // If user text already set to the next line, return random line
-    if (response === userText) {
+  const getRandomLine = (e) => {
       let max = parseInt((data.length-1));
       let randomIndex = Math.floor(Math.random() * max); 
-      console.log('random index ' + randomIndex);
       setUserText(data[randomIndex]);
-      return;
-    }
+  }
 
-    setUserText(data[index+1]);
+  const getNextLine = (e) => {
+    let index = data.indexOf(botResponse);  
+    let response = data[index+1].toString();
+    setUserText(response);
   }
 
   return (
@@ -92,8 +85,11 @@ function App() {
           </div>
           {/* Other buttons */}
           <div className="Preferences">
-          <Button variant='contained' onClick={generateUserText}>
-             Get next line 
+          <Button variant='outlined' onClick={getRandomLine}>
+            Get random line
+          </Button>
+          <Button variant='outlined' onClick={getNextLine}>
+            Get next line
           </Button>
           <Button onClick={() => setMute(!mute)}>
             {!mute ? <MicOnIcon/> : <MicOffIcon/>}

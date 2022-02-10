@@ -12,51 +12,56 @@ import TextField from '@mui/material/TextField';
 function App() {
 
   const [userText, setUserText] = useState('');
-  let michaelLine = 'Sometimes I’ll start a sentence and I don’t even know where it’s going. I just hope I find it along the way.';
-  const [botResponse, setBotResponse] = useState(michaelLine);
+  const [botResponse, setBotResponse] = useState('Sometimes I’ll start a sentence and I don’t even know where it’s going. I just hope I find it along the way.');
   const [mute, setMute] = useState(true);
   const [lines, setLines] = useState([]);
-  
+
   // gets all lines from the office.
-  useEffect(() => {
-    const getLines = () => {
-      let arr = [];
-      for (let i=0; i<data.length; i++) {
-        arr.push(data[i].toString());
-      }
-      let fz = FuzzySet(arr);
-      setLines(fz);
-      console.log('done');
+  const loadLines = () => {
+    let arr = []
+    for (let i=0; i<data.length; i++) {
+      arr.push(data[i].toString());
     }
-    getLines();
-  }, []);
+    setLines(FuzzySet(arr));
+  }
   
+  useEffect(() => {
+    loadLines()
+  }, []);
 
   // find closest matching line to user text
   // respond to user w/ next line in the show. 
-  const handleSubmit = (e) => {
-
-    e.preventDefault();
+  const findBestResponse = () => {
     let scores = lines.get(userText);
     let best_score = scores[0][1];
     let index = data.indexOf(best_score);
     let response = data[index+1];
     setBotResponse(response);
+  }
 
+  // Play text to speech bot response
+  const speakResponse = () => {
+    let message = new SpeechSynthesisUtterance();
+    message.text = botResponse;
+    window.speechSynthesis.speak(message);
+  }
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    findBestResponse();
     if (!mute) {
-      let message = new SpeechSynthesisUtterance();
-      message.text = response;
-      window.speechSynthesis.speak(message);
+      speakResponse();
     }
   }
 
-  // Return the next line in the show after bot's line
+  // Returns a random line in the show
   const getRandomLine = (e) => {
       let max = parseInt((data.length-1));
       let randomIndex = Math.floor(Math.random() * max); 
       setUserText(data[randomIndex]);
   }
 
+  // Return the next line in the show after bot's line
   const getNextLine = (e) => {
     let index = data.indexOf(botResponse);  
     let response = data[index+1].toString();
@@ -75,7 +80,6 @@ function App() {
             variant="standard"
             label="Type something, maybe a line from the show?"
             value={userText}
-            maxRows={4}
             onChange={(e) => setUserText(e.target.value)}
             style={{backgroundColor: "white", width: "100%"}}
           />
@@ -85,17 +89,16 @@ function App() {
           </div>
           {/* Other buttons */}
           <div className="Preferences">
-          <Button variant='outlined' onClick={getRandomLine}>
-            Get random line
-          </Button>
-          <Button variant='outlined' onClick={getNextLine}>
-            Get next line
-          </Button>
-          <Button onClick={() => setMute(!mute)}>
-            {!mute ? <MicOnIcon/> : <MicOffIcon/>}
-          </Button>
+            <Button variant='outlined' onClick={getNextLine}>
+              Get next line
+            </Button>
+            <Button variant='outlined' onClick={getRandomLine}>
+              Get random line
+            </Button>
+            <Button onClick={() => setMute(!mute)}>
+              {!mute ? <MicOnIcon/> : <MicOffIcon/>}
+            </Button>
           </div>
-
         </form>
         <div className="Response">
           {botResponse}

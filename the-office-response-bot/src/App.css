@@ -42,15 +42,10 @@
 }
 
 .Button-1 {
-  background-color: #7F4FC4		 !important;
+  background-color: #7F4FC4 !important;
   color: whitesmoke	 !important;
   border: 1px solid white !important;
-  margin: 1rem !important;
-}
-
-.Button-group {
-  margin: 2rem;
-  color: black !important;
+  margin: 2rem !important;
 }
 
 .Bot-response {

@@ -3,7 +3,8 @@ import Button from '@mui/material/Button';
 
 function NextLineBtn({data, botResponse, setUserText}) {
 
-    const getNextLine = () => {
+    const getNextLine = (e) => {
+        e.preventDefault();
         let index = data.indexOf(botResponse);  
         let response = data[index+1].toString();
         setUserText(response);
@@ -16,7 +17,6 @@ function NextLineBtn({data, botResponse, setUserText}) {
             className="Button-1"
             color="secondary"
         >
-
             Get next line
         </Button>
     )

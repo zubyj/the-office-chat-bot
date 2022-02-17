@@ -17,6 +17,7 @@ function App() {
   const [botResponse, setBotResponse] = useState('Sometimes I’ll start a sentence and I don’t even know where it’s going. I just hope I find it along the way.');
   const [isMute, setIsMute] = useState(true);
 
+  // Loads every line from 'The Office'
   const loadLines = () => {
     let arr = []
     for (let i=0; i<data.length; i++) {
@@ -25,37 +26,36 @@ function App() {
     setLines(FuzzySet(arr));
   }
 
-  // When page loads, load the lines. 
   useEffect(() => {
     loadLines()
   }, []);
 
-
-  // main algorithm. 
-
   // finds closest matching line to user text.
   // replies with the follwing line in the show. 
-  const findBestResponse = () => {
+  const getResponse = () => {
     let scores = lines.get(userText);
     let best_score = scores[0][1];
     let best_index = data.indexOf(best_score);
     let response = data[best_index + 1];
-    setBotResponse(response);
+    return response;
   }
 
-  const speakResponse = () => {
+  const checkSpeak = (response) => {
+    window.speechSynthesis.cancel();
     let message = new SpeechSynthesisUtterance();
-    message.text = botResponse;
-    window.speechSynthesis.speak(message);
+    message.text = response;
+    if (!isMute) {
+      window.speechSynthesis.speak(message);
+    }
   }
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    findBestResponse();
-    if (!isMute) {
-      window.speechSynthesis.cancel();
-      speakResponse();
-    }
+    let response = getResponse();
+    console.log('bot response 1 ' + response);
+    setBotResponse(response);
+    checkSpeak(response);
+
   }
 
   return (

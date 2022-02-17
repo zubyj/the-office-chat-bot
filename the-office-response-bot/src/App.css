@@ -30,22 +30,36 @@
   font-weight: normal;
 } 
 
-.Text-form {
+.Form {
   background-color: whitesmoke;
   border-radius: 10px;
   width: 30rem !important;
 }
 
-.Submit-btn Button {
-  margin-top: 3rem;
-  width: 15rem;
+.Submit-btn {
+  margin: 2rem !important;
+  width: 12rem;
 }
 
-.Response {
-  margin: 5rem;
+.Button-1 {
+  background-color: #7F4FC4		 !important;
+  color: whitesmoke	 !important;
+  border: 1px solid white !important;
+  margin: 1rem !important;
+}
+
+.Button-group {
+  margin: 2rem;
+  color: black !important;
+}
+
+.Bot-response {
+  margin-top: 5rem;
+  width: 50%;
   color: whitesmoke;
+  padding: 2rem;
+  border: 1px solid white;
 }
-
 
 @keyframes App-logo-spin {
   from {

@@ -6,7 +6,10 @@ import MicOffIcon from '@mui/icons-material/MicOff';
 function ToggleMicBtn({isMute, setIsMute}) {
 
     return (
-        <Button onClick={() => setIsMute(!isMute)}>
+        <Button 
+          variant="contained"
+          className="Button-1"
+          onClick={() => setIsMute(!isMute)}>
         {!isMute ? <MicOnIcon/> : <MicOffIcon/>}
       </Button>
     )

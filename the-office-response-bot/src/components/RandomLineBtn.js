@@ -1,7 +1,6 @@
 import React from 'react';
 import Button from '@mui/material/Button';
-import MicOnIcon from '@mui/icons-material/Mic';
-import MicOffIcon from '@mui/icons-material/MicOff';
+
 
 function RandomLineBtn({data, setUserText}) {
 
@@ -13,7 +12,11 @@ function RandomLineBtn({data, setUserText}) {
     }
 
     return (
-        <Button variant='outlined' onClick={getRandomLine}>
+        <Button 
+            variant='contained'
+            onClick={getRandomLine}
+            className="Button-1"
+            >
             Get random line
       </Button>
     )

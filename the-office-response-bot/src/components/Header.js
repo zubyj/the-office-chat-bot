@@ -1,5 +1,5 @@
 import React from 'react';
-import logo from './prison-mike.png';
+import logo from './../prison-mike.png';
 
 function Header({title}) {
 

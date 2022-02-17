@@ -10,7 +10,13 @@ function NextLineBtn({data, botResponse, setUserText}) {
     }
 
     return (
-        <Button variant='outlined' onClick={getNextLine}>
+        <Button 
+            variant='contained' 
+            onClick={getNextLine}
+            className="Button-1"
+            color="secondary"
+        >
+
             Get next line
         </Button>
     )

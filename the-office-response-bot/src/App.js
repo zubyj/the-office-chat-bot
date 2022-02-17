@@ -6,9 +6,10 @@ import './App.css';
 // UI Components
 import Header from './Header';
 import Form from './Form';
-import NextLineBtn from "./NextLineBtn";
+import NextLineBtn from './NextLineBtn';
+import RandomLineBtn from './RandomLineBtn';
 
-// Material UI imports
+// Material UI
 import MicOnIcon from '@mui/icons-material/Mic';
 import MicOffIcon from '@mui/icons-material/MicOff';
 import Button from '@mui/material/Button';
@@ -36,8 +37,8 @@ function App() {
   const findBestResponse = () => {
     let scores = lines.get(userText);
     let best_score = scores[0][1];
-    let index = data.indexOf(best_score);
-    let response = data[index+1];
+    let best_index = data.indexOf(best_score);
+    let response = data[best_index + 1];
     setBotResponse(response);
   }
 
@@ -57,12 +58,7 @@ function App() {
 
 
 
-  // Returns random line. 
-  const getRandomLine = (e) => {
-      let max = parseInt((data.length-1));
-      let randomIndex = Math.floor(Math.random() * max); 
-      setUserText(data[randomIndex]);
-  }
+
 
   const handleFormChange = (e) => {
     setUserText(e.target.value);
@@ -75,9 +71,7 @@ function App() {
         <Form text={userText} setText={setUserText} handleSubmit={handleSubmit} />
         <div>
           <NextLineBtn data={data} botResponse={botResponse} setUserText={setUserText} />
-          <Button variant='outlined' onClick={getRandomLine}>
-            Get random line
-          </Button>
+          <RandomLineBtn data={data} setUserText={setUserText} />
           <Button onClick={() => setMute(!mute)}>
             {!mute ? <MicOnIcon/> : <MicOffIcon/>}
           </Button>

@@ -11,7 +11,6 @@ function Form({text, setText, handleSubmit}) {
             id="standard-basic"
             className="Text-form"
             variant="standard"
-            fullWidth="20"
             label="Type something, maybe a line from the show?"
             value={text}
             onChange={(e) => setText(e.target.value)}

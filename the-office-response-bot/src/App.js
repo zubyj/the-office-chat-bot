@@ -8,18 +8,14 @@ import Header from './Header';
 import Form from './Form';
 import NextLineBtn from './NextLineBtn';
 import RandomLineBtn from './RandomLineBtn';
-
-// Material UI
-import MicOnIcon from '@mui/icons-material/Mic';
-import MicOffIcon from '@mui/icons-material/MicOff';
-import Button from '@mui/material/Button';
+import Mic from './Mic';
 
 function App() {
 
   const [lines, setLines] = useState([]);
   const [userText, setUserText] = useState('');
   const [botResponse, setBotResponse] = useState('Sometimes I’ll start a sentence and I don’t even know where it’s going. I just hope I find it along the way.');
-  const [mute, setMute] = useState(true);
+  const [isMute, setIsMute] = useState(true);
 
   const loadLines = () => {
     let arr = []
@@ -51,36 +47,30 @@ function App() {
   const handleSubmit = (e) => {
     e.preventDefault();
     findBestResponse();
-    if (!mute) {
+    if (!isMute) {
+      window.speechSynthesis.cancel();
       speakResponse();
     }
   }
-
-
-
-
-
+  
   const handleFormChange = (e) => {
     setUserText(e.target.value);
   }
 
   return (
     <div className="App">
-      <header className="App-header">
+      <div className="App-body">
         <Header title='The Office Response Bot' />
         <Form text={userText} setText={setUserText} handleSubmit={handleSubmit} />
         <div>
           <NextLineBtn data={data} botResponse={botResponse} setUserText={setUserText} />
           <RandomLineBtn data={data} setUserText={setUserText} />
-          <Button onClick={() => setMute(!mute)}>
-            {!mute ? <MicOnIcon/> : <MicOffIcon/>}
-          </Button>
+          <Mic isMute={isMute} setIsMute={setIsMute}/>
         </div>
-        
         <div className="Response">
           {botResponse}
         </div>
-      </header>
+      </div>
     </div>
   );
 }

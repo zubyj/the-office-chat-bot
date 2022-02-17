@@ -1,12 +1,13 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import MicOnIcon from '@mui/icons-material/Mic';
 import MicOffIcon from '@mui/icons-material/MicOff';
 import './App.css';
 import data from './office-lines.js';
 import FuzzySet from "fuzzyset.js";
 import Button from '@mui/material/Button';
-import TextForm from "./TextForm";
-import Header from "./Header"
+import TextField from '@mui/material/TextField';
+import Header from './Header';
+import Form from './Form';
 
 function App() {
 
@@ -15,7 +16,7 @@ function App() {
   const [mute, setMute] = useState(true);
   const [lines, setLines] = useState([]);
 
-  // gets all lines from the office.
+  // Load all lines from the tv show. 
   const loadLines = () => {
     let arr = []
     for (let i=0; i<data.length; i++) {
@@ -28,8 +29,6 @@ function App() {
     loadLines()
   }, []);
 
-  // find closest matching line to user text
-  // respond to user w/ next line in the show. 
   const findBestResponse = () => {
     let scores = lines.get(userText);
     let best_score = scores[0][1];
@@ -38,7 +37,6 @@ function App() {
     setBotResponse(response);
   }
 
-  // Play text to speech bot response
   const speakResponse = () => {
     let message = new SpeechSynthesisUtterance();
     message.text = botResponse;
@@ -67,30 +65,28 @@ function App() {
     setUserText(response);
   }
 
+  const handleFormChange = (e) => {
+    setUserText(e.target.value);
+  }
+
   return (
     <div className="App">
       <header className="App-header">
-        <Header title={'The Office Response Bot'}/>
-        <form onSubmit={handleSubmit}>
-          {/* Input Form */}
-          <TextForm className="Text-form" userText={userText} setUserText={setUserText} />
-          {/* Submit Button */}
-          <div className="Submit-btn">
-            <Button variant='contained' type='submit'>Submit</Button>
-          </div>
-          {/* Other buttons */}
-          <div className="Preferences">
-            <Button variant='outlined' onClick={getNextLine}>
-              Get next line
-            </Button>
-            <Button variant='outlined' onClick={getRandomLine}>
-              Get random line
-            </Button>
-            <Button onClick={() => setMute(!mute)}>
-              {!mute ? <MicOnIcon/> : <MicOffIcon/>}
-            </Button>
-          </div>
-        </form>
+        <Header title='The Office Response Bot' />
+        <Form userText={userText} handleFormChange={handleFormChange} handleSubmit={handleSubmit} />
+        {/* Other buttons */}
+        <div className="Preferences">
+          <Button variant='outlined' onClick={getNextLine}>
+            Get next line
+          </Button>
+          <Button variant='outlined' onClick={getRandomLine}>
+            Get random line
+          </Button>
+          <Button onClick={() => setMute(!mute)}>
+            {!mute ? <MicOnIcon/> : <MicOffIcon/>}
+          </Button>
+        </div>
+        
         <div className="Response">
           {botResponse}
         </div>

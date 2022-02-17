@@ -3,7 +3,7 @@ import Button from '@mui/material/Button';
 import MicOnIcon from '@mui/icons-material/Mic';
 import MicOffIcon from '@mui/icons-material/MicOff';
 
-function Mic({isMute, setIsMute}) {
+function ToggleMicBtn({isMute, setIsMute}) {
 
     return (
         <Button onClick={() => setIsMute(!isMute)}>
@@ -12,4 +12,4 @@ function Mic({isMute, setIsMute}) {
     )
 }
 
-export default Mic
+export default ToggleMicBtn

@@ -8,7 +8,7 @@ import Header from './Header';
 import Form from './Form';
 import NextLineBtn from './NextLineBtn';
 import RandomLineBtn from './RandomLineBtn';
-import Mic from './Mic';
+import ToggleMicBtn from './ ToggleMicBtn';
 
 function App() {
 
@@ -52,10 +52,6 @@ function App() {
       speakResponse();
     }
   }
-  
-  const handleFormChange = (e) => {
-    setUserText(e.target.value);
-  }
 
   return (
     <div className="App">
@@ -65,7 +61,7 @@ function App() {
         <div>
           <NextLineBtn data={data} botResponse={botResponse} setUserText={setUserText} />
           <RandomLineBtn data={data} setUserText={setUserText} />
-          <Mic isMute={isMute} setIsMute={setIsMute}/>
+          <ToggleMicBtn isMute={isMute} setIsMute={setIsMute}/>
         </div>
         <div className="Response">
           {botResponse}

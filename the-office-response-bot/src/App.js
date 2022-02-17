@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import logo from './prison-mike.png';
 import MicOnIcon from '@mui/icons-material/Mic';
 import MicOffIcon from '@mui/icons-material/MicOff';
 import './App.css';
@@ -7,6 +6,7 @@ import data from './office-lines.js';
 import FuzzySet from "fuzzyset.js";
 import Button from '@mui/material/Button';
 import TextForm from "./TextForm";
+import Header from "./Header"
 
 function App() {
 
@@ -70,9 +70,8 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <h1 className="Title">The Office Response Bot</h1>
-        <form onSubmit={handleSubmit} style={{width: "50%"}}>
+        <Header title={'The Office Response Bot'}/>
+        <form onSubmit={handleSubmit}>
           {/* Input Form */}
           <TextForm className="Text-form" userText={userText} setUserText={setUserText} />
           {/* Submit Button */}

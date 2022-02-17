@@ -31,10 +31,8 @@
 } 
 
 .Text-form {
-  border: 1px solid lightblue !important;
-  border-radius: 10px;
-  width: 100% !important;
   background-color: whitesmoke;
+  border-radius: 10px;
 }
 
 .Submit-btn Button {

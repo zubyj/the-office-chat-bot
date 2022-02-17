@@ -7,6 +7,7 @@ function TextForm({userText, setUserText}) {
         id="standard-basic"
         className="Text-form"
         variant="standard"
+        fullWidth="20"
         label="Type something, maybe a line from the show?"
         value={userText}
         onChange={(e) => setUserText(e.target.value)}

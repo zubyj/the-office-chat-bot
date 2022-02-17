@@ -2,7 +2,7 @@ import React from 'react';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 
-function Form({userText, handleFormChange, handleSubmit}) {
+function Form({text, setText, handleSubmit}) {
 
    return (
       <form onSubmit={handleSubmit}>
@@ -13,8 +13,8 @@ function Form({userText, handleFormChange, handleSubmit}) {
             variant="standard"
             fullWidth="20"
             label="Type something, maybe a line from the show?"
-            value={userText}
-            onChange={handleFormChange}
+            value={text}
+            onChange={(e) => setText(e.target.value)}
          />
          {/* Submit Button */}
          <div className="Submit-btn">

@@ -33,6 +33,7 @@
 .Text-form {
   background-color: whitesmoke;
   border-radius: 10px;
+  width: 30rem !important;
 }
 
 .Submit-btn Button {

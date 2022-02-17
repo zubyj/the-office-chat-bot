@@ -1,13 +1,12 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState } from "react";
 import logo from './prison-mike.png';
 import MicOnIcon from '@mui/icons-material/Mic';
 import MicOffIcon from '@mui/icons-material/MicOff';
 import './App.css';
 import data from './office-lines.js';
 import FuzzySet from "fuzzyset.js";
-import { flushSync } from "react-dom";
 import Button from '@mui/material/Button';
-import TextField from '@mui/material/TextField';
+import TextForm from "./TextForm";
 
 function App() {
 
@@ -74,15 +73,8 @@ function App() {
         <img src={logo} className="App-logo" alt="logo" />
         <h1 className="title">The Office Response Bot</h1>
         <form onSubmit={handleSubmit} style={{width: "50%"}}>
-          {/* Input Field */}
-          <TextField 
-            id="standard-basic"
-            variant="standard"
-            label="Type something, maybe a line from the show?"
-            value={userText}
-            onChange={(e) => setUserText(e.target.value)}
-            style={{backgroundColor: "white", width: "100%"}}
-          />
+          {/* Input Form */}
+          <TextForm userText={userText} setUserText={setUserText} />
           {/* Submit Button */}
           <div className="Submit-btn">
             <Button variant='contained' type='submit'>Submit</Button>

@@ -21,25 +21,25 @@
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-.title {
-  text-decoration: none !important;
+.Title {
   font-size: 2rem;
-  margin-top: 3rem;
-}
+  margin: 3rem;
+  color: whitesmoke;
+  font-weight: normal;
+} 
 
-.Submit-btn {
-  margin-top: 3rem;
+.Text-form {
+  border: 1px solid lightblue !important;
+  border-radius: 10px;
+  width: 100% !important;
+  background-color: whitesmoke;
 }
 
 .Submit-btn Button {
-  width: 20rem;
+  margin-top: 3rem;
+  width: 15rem;
 }
 
 .Preferences {
@@ -47,9 +47,8 @@
 }
 
 .Response {
-  margin-top: 3rem;
-  margin-bottom: 5rem; 
-  width: 50%;
+  margin: 5rem;
+  color: whitesmoke;
 }
 
 

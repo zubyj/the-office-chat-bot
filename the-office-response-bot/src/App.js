@@ -71,10 +71,10 @@ function App() {
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <h1 className="title">The Office Response Bot</h1>
+        <h1 className="Title">The Office Response Bot</h1>
         <form onSubmit={handleSubmit} style={{width: "50%"}}>
           {/* Input Form */}
-          <TextForm userText={userText} setUserText={setUserText} />
+          <TextForm className="Text-form" userText={userText} setUserText={setUserText} />
           {/* Submit Button */}
           <div className="Submit-btn">
             <Button variant='contained' type='submit'>Submit</Button>

@@ -31,7 +31,7 @@ function App() {
   }, []);
 
   // finds closest matching line to user text.
-  // replies with the follwing line in the show. 
+  // reply with following line in the show. 
   const getResponse = () => {
     let scores = lines.get(userText);
     let best_score = scores[0][1];
@@ -40,6 +40,7 @@ function App() {
     return response;
   }
 
+  // If mute button off, play text to speech. 
   const checkSpeak = (response) => {
     window.speechSynthesis.cancel();
     let message = new SpeechSynthesisUtterance();
@@ -52,10 +53,8 @@ function App() {
   const handleSubmit = (e) => {
     e.preventDefault();
     let response = getResponse();
-    console.log('bot response 1 ' + response);
     setBotResponse(response);
     checkSpeak(response);
-
   }
 
   return (

@@ -34,22 +34,19 @@
 
 .Title {
   font-size: 2rem;
-  margin: 3rem;
   color: whitesmoke;
   font-weight: normal;
 }
 
 .Form {
+  margin-bottom: 3rem !important;
   background-color: whitesmoke;
-  width: 50vw;
+  width: 40vw;
 }
 
 .Submit-btn {
-  margin-top: 3rem;
-}
-
-.Button-1 {
-  margin: 2rem !important;
+  margin-right: 3rem !important;
+  width: 10rem;
 }
 
 .Bot-response {

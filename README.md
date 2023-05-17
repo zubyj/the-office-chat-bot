@@ -3,15 +3,7 @@
 ## Description
 The Office Chat Bot is a fun project that uses lines from the famous NBC's sitcom "The Office". It provides responses based on the user's input. If the user's input matches a line from the show, the bot responds with the following line from the script.
 
-The bot has two modes of operation:
-
-1. Fuzzy search: This method finds the closest matching line to the user's input from the show's script.
-
-2. API search: This method sends a request to the API endpoint provided by "The Office Script" and fetches the relevant response based on the user's input.
-
-Moreover, there are three interactive buttons to navigate through the script. The user can fetch the next line, fetch a random line, or toggle between the fuzzy search and API search modes.
-
-The application also features a rotating head of 'Prison Mike' (a character from the show), because, why not?
+This method sends a request to the API endpoint provided by "The Office Script" and fetches the relevant response based on the user's input.
 
 ## Screenshots
 Here is a preview of the chat bot in action:

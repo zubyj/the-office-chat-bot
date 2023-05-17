@@ -59,9 +59,8 @@ function App() {
     <div className="App">
       <div className="App-body">
         <img src={logo} className="App-logo" alt="logo" />
-        <h1 className="Title">The Office Response Bot</h1>
+        <h1 className="Title">The Office Chat Bot</h1>
         <Form text={userText} setText={setUserText} handleSubmit={handleSubmit} />
-
         <div className="Bot-response">
           {botResponse}
         </div>

@@ -40,9 +40,9 @@ function App() {
     }
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    let response = getResponse();
+    let response = await getResponse();
     setBotResponse(response);
     checkSpeak(response);
   }

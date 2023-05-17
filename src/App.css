@@ -32,10 +32,11 @@
   }
 }
 
-.Title {
+.Header {
   font-size: 2rem;
   color: whitesmoke;
   font-weight: normal;
+  margin-bottom: 3rem;
 }
 
 .Form {
@@ -56,4 +57,10 @@
   color: whitesmoke;
   padding: 2rem;
   border: 1px solid white;
+}
+
+.Socials {
+  display: 'flex';
+  justify-content: 'space-between';
+  margin-top: 5rem;
 }

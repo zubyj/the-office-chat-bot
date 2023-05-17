@@ -1,7 +1,9 @@
 import React from 'react';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
+import PlayArrowIcon from '@mui/icons-material/PlayArrow';
 import ToggleMicBtn from './ ToggleMicBtn';
+
 
 function Form({ text, setText, handleSubmit, isMute, setIsMute }) {
 
@@ -23,7 +25,9 @@ function Form({ text, setText, handleSubmit, isMute, setIsMute }) {
             <Button
                variant='contained'
                type='submit'
+               color="success"
                className="Submit-btn"
+               startIcon={<PlayArrowIcon />}
             >Submit</Button>
             <ToggleMicBtn isMute={isMute} setIsMute={setIsMute} />
          </div>

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import Form from './components/Form.js';
+import Form from './components/Form';
+import Socials from './components/Socials';
 import logo from './assets/prison-mike.png';
 import './App.css';
 
@@ -50,13 +51,15 @@ function App() {
     <div className="App">
       <div className="App-body">
         <img src={logo} className="App-logo" alt="logo" />
-        <h1 className="Title">The Office Chat Bot</h1>
+        <h1 className="Header">The Office Chat Bot</h1>
         <Form text={userText} setText={setUserText} handleSubmit={handleSubmit} isMute={isMute} setIsMute={setIsMute} />
         <div className="Bot-response">
           {botResponse}
         </div>
         <div className="Button-group">
         </div>
+        <Socials />
+
       </div>
     </div>
   );

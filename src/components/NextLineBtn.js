@@ -1,23 +1,23 @@
-import React from 'react'; 
+import React from 'react';
 import Button from '@mui/material/Button';
 
-function NextLineBtn({data, botResponse, setUserText}) {
+function NextLineBtn({ data, botResponse, setUserText }) {
 
     const getNextLine = (e) => {
         e.preventDefault();
-        let index = data.indexOf(botResponse);  
-        let response = data[index+1].toString();
+        let index = data.indexOf(botResponse);
+        let response = data[index + 1].toString();
         setUserText(response);
     }
 
     return (
-        <Button 
-            variant='contained' 
+        <Button
+            variant='contained'
             onClick={getNextLine}
             className="Button-1"
-            color="secondary"
+            color='secondary'
         >
-            Get next line
+            Next line
         </Button>
     )
 }

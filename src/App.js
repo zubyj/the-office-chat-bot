@@ -1,14 +1,15 @@
-import React, { useEffect, useState, useRef } from "react";
-import data from '../office-lines.js';
-import FuzzySet from "fuzzyset.js";
-import './../App.css';
+import React, { useEffect, useState } from "react";
 
-// UI Components
-import Header from './Header';
-import Form from './Form';
-import NextLineBtn from './NextLineBtn';
-import RandomLineBtn from './RandomLineBtn';
-import ToggleMicBtn from './ ToggleMicBtn';
+import FuzzySet from "fuzzyset.js";
+
+import Form from './components/Form.js';
+import NextLineBtn from './components/NextLineBtn.js';
+import RandomLineBtn from './components/RandomLineBtn.js';
+import ToggleMicBtn from './components/ ToggleMicBtn.js';
+
+import logo from './assets/prison-mike.png';
+import data from './office-lines.js';
+import './App.css';
 
 function App() {
 
@@ -19,11 +20,7 @@ function App() {
 
   // Loads every line from 'The Office'
   const loadLines = () => {
-    let arr = []
-    for (let i=0; i<data.length; i++) {
-      arr.push(data[i].toString());
-    }
-    setLines(FuzzySet(arr));
+    setLines(FuzzySet(data.map(item => item.toString())))
   }
 
   useEffect(() => {
@@ -34,6 +31,7 @@ function App() {
   // reply with following line in the show. 
   const getResponse = () => {
     let scores = lines.get(userText);
+    if (!scores) return "I'm sorry, I didn't get that.";
     let best_score = scores[0][1];
     let best_index = data.indexOf(best_score);
     let response = data[best_index + 1];
@@ -60,15 +58,17 @@ function App() {
   return (
     <div className="App">
       <div className="App-body">
-        <Header title='The Office Response Bot' />
+        <img src={logo} className="App-logo" alt="logo" />
+        <h1 className="Title">The Office Response Bot</h1>
         <Form text={userText} setText={setUserText} handleSubmit={handleSubmit} />
+
+        <div className="Bot-response">
+          {botResponse}
+        </div>
         <div className="Button-group">
           <NextLineBtn data={data} botResponse={botResponse} setUserText={setUserText} />
           <RandomLineBtn data={data} setUserText={setUserText} />
-          <ToggleMicBtn isMute={isMute} setIsMute={setIsMute}/>
-        </div>
-        <div className="Bot-response">
-          {botResponse}
+          <ToggleMicBtn isMute={isMute} setIsMute={setIsMute} />
         </div>
       </div>
     </div>

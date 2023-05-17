@@ -1,5 +1,14 @@
 .App {
   text-align: center;
+  background-color: #282c34;
+  min-height: 100vh;
+}
+
+.App-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: calc(10px + 2vmin);
 }
 
 .App-logo {
@@ -13,14 +22,14 @@
   }
 }
 
-.App-body {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 .Title {
@@ -28,39 +37,26 @@
   margin: 3rem;
   color: whitesmoke;
   font-weight: normal;
-} 
+}
 
 .Form {
   background-color: whitesmoke;
-  border-radius: 10px;
-  width: 30rem !important;
+  width: 50vw;
 }
 
 .Submit-btn {
-  margin: 2rem !important;
-  width: 12rem;
+  margin-top: 3rem;
 }
 
 .Button-1 {
-  background-color: #7F4FC4 !important;
-  color: whitesmoke	 !important;
-  border: 1px solid white !important;
   margin: 2rem !important;
 }
 
 .Bot-response {
   margin-top: 5rem;
+  margin-bottom: 3rem;
   width: 50%;
   color: whitesmoke;
   padding: 2rem;
   border: 1px solid white;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
 }

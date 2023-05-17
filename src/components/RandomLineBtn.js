@@ -2,24 +2,25 @@ import React from 'react';
 import Button from '@mui/material/Button';
 
 
-function RandomLineBtn({data, setUserText}) {
+function RandomLineBtn({ data, setUserText }) {
 
     // Returns random line. 
     const getRandomLine = (e) => {
         e.preventDefault();
-        let max = parseInt((data.length-1));
-        let randomIndex = Math.floor(Math.random() * max); 
+        let max = parseInt((data.length - 1));
+        let randomIndex = Math.floor(Math.random() * max);
         setUserText(data[randomIndex]);
     }
 
     return (
-        <Button 
+        <Button
             variant='contained'
             onClick={getRandomLine}
             className="Button-1"
+            color='secondary'
         >
-            Get random line
-      </Button>
+            Random line
+        </Button>
     )
 }
 

@@ -2,12 +2,12 @@ import React from 'react';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 
-function Form({text, setText, handleSubmit}) {
+function Form({ text, setText, handleSubmit }) {
 
    return (
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className="Form-Area">
          {/* User Input Field */}
-         <TextField 
+         <TextField
             id="standard-basic"
             className="Form"
             variant="standard"
@@ -16,14 +16,13 @@ function Form({text, setText, handleSubmit}) {
             onChange={(e) => setText(e.target.value)}
          />
          {/* Submit Button */}
-         <div>
-            <Button 
-            variant='contained' 
-            type='submit'
-            className="Submit-btn"
+         <div className='Submit-btn'>
+            <Button
+               variant='contained'
+               type='submit'
             >Submit</Button>
          </div>
-      </form>
+      </form >
    )
 }
 

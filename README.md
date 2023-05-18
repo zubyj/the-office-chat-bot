@@ -25,36 +25,4 @@ The bot will respond with "Hey, I just wanted you to know that you can't just sa
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Project Structure
-
-- build
-- node_modules
-- public
-  - favicon.ico
-  - index.html
-  - logo192.png
-  - logo512.png
-  - manifest.json
-  - robots.txt
-  - screenshot.png
-- src
-  - assets
-    - prison-mike.png
-  - components
-    - Footer.js
-    - Form.js
-    - NextLineBtn.js
-    - RandomLineBtn.js
-    - ToggleMicBtn.js
-    - ToggleSearchModeBtn.js
-  - App.css
-  - App.js
-  - index.css
-  - index.js
-  - office-lines.js
-- .gitignore
-- LICENSE
-- package-lock.json
-- package.json
-- README.md
 

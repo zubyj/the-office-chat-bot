@@ -1,9 +1,9 @@
 # The Office Chat Bot
 
 ## Description
-The Office Chat Bot is a fun project that uses lines from the famous NBC's sitcom "The Office". It provides responses based on the user's input. If the user's input matches a line from the show, the bot responds with the following line from the script.
+The Office Chat Bot uses lines from the famous NBC's sitcom "The Office". It provides responses based on the user's input. If the user's input matches a line from the show, the bot responds with the following line from the script.
 
-This method sends a request to the API endpoint provided by "The Office Script" and fetches the relevant response based on the user's input.
+This method sends a request to the [The Office Script API](https://theofficescript.com) and fetches the relevant response based on the user's input.
 
 ## Screenshots
 Here is a preview of the chat bot in action:

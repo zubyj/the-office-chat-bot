@@ -1,16 +1,14 @@
 {
   "files": {
-    "main.css": "./static/css/main.9506e24b.css",
-    "main.js": "./static/js/main.4a091b72.js",
-    "static/js/787.dea483ef.chunk.js": "./static/js/787.dea483ef.chunk.js",
+    "main.css": "./static/css/main.bbf26a7d.css",
+    "main.js": "./static/js/main.a034bb0f.js",
     "static/media/prison-mike.png": "./static/media/prison-mike.de0853437f10af6c2f06.png",
     "index.html": "./index.html",
-    "main.9506e24b.css.map": "./static/css/main.9506e24b.css.map",
-    "main.4a091b72.js.map": "./static/js/main.4a091b72.js.map",
-    "787.dea483ef.chunk.js.map": "./static/js/787.dea483ef.chunk.js.map"
+    "main.bbf26a7d.css.map": "./static/css/main.bbf26a7d.css.map",
+    "main.a034bb0f.js.map": "./static/js/main.a034bb0f.js.map"
   },
   "entrypoints": [
-    "static/css/main.9506e24b.css",
-    "static/js/main.4a091b72.js"
+    "static/css/main.bbf26a7d.css",
+    "static/js/main.a034bb0f.js"
   ]
 }
